@@ -16,6 +16,10 @@ func (repeatMatch) Matches(password string) []*match.Match {
 	var matches []*match.Match
 
 	lastIndex := 0
+	indices := map[int]bool{
+		lastIndex: true,
+	}
+
 	for lastIndex < len(password) {
 		greedyMatch, err := greedy.FindStringMatchStartingAt(password, lastIndex)
 		if err != nil || greedyMatch == nil {
@@ -63,7 +67,11 @@ func (repeatMatch) Matches(password string) []*match.Match {
 			RepeatCount: rmatch.Captures[0].Length / len(baseToken),
 		})
 		lastIndex = j + 1
-
+		if _, ok := indices[lastIndex]; ok {
+			//already seen this index...avoid an infinite loop
+			break
+		}
+		indices[lastIndex] = true
 	}
 	return matches
 }
