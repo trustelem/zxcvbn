@@ -5,6 +5,7 @@ import (
 	// "github.com/trustelem/zxcvbn/entropy"
 	"sort"
 	"strings"
+	"unicode/utf8"
 
 	"github.com/trustelem/zxcvbn/match"
 )
@@ -54,6 +55,11 @@ func (lm l33tMatch) Matches(password string) []*match.Match {
 
 func translate(password string, sub map[string]string) string {
 	return strings.Map(func(r rune) rune {
+		if r > utf8.RuneSelf {
+			//This makes sure that the translated string never
+			//ends up with more bytes than the original password
+			return ' '
+		}
 		if v, ok := sub[string(r)]; ok && len(v) == 1 {
 			return []rune(v)[0]
 		}

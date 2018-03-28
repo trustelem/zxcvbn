@@ -86,6 +86,7 @@ func TestCornerCases(t *testing.T) {
 		"wen\x8e\xc6",
 		"İҦİ",
 		"\xcd|",
+		"0\xefi",
 	}
 
 	for _, td := range testdata {
