@@ -80,6 +80,13 @@ func TestPasswordStrength(t *testing.T) {
 
 }
 
-func TestEmptyPassword(t *testing.T) {
-	_ = PasswordStrength("", nil)
+func TestCornerCases(t *testing.T) {
+	testdata := []string{
+		"",
+		"wen\x8e\xc6",
+	}
+
+	for _, td := range testdata {
+		_ = PasswordStrength(td, nil)
+	}
 }
