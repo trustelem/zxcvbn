@@ -2,8 +2,9 @@ package matching
 
 import (
 	// "github.com/trustelem/zxcvbn/entropy"
-	"github.com/trustelem/zxcvbn/match"
 	"strings"
+
+	"github.com/trustelem/zxcvbn/match"
 )
 
 type dictionaryMatch struct {
@@ -12,13 +13,12 @@ type dictionaryMatch struct {
 
 func (dm dictionaryMatch) Matches(password string) []*match.Match {
 	var results []*match.Match
-	pwLower := strings.ToLower(password)
 
 	for dictionaryName, rankedDict := range dm.rankedDictionaries {
 		for i := range password {
 			for delta := range password[i:] {
 				j := i + delta
-				word := pwLower[i : j+1]
+				word := strings.ToLower(password[i : j+1])
 				if val, ok := rankedDict[word]; ok {
 					matchDic := &match.Match{
 						Pattern:        "dictionary",
