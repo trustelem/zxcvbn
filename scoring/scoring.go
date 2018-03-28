@@ -55,6 +55,10 @@ func MostGuessableMatchSequence(password string, matches []*match.Match, exclude
 	// partition matches into sublists according to ending index j
 	matchesByJ := make([][]*match.Match, n)
 	for _, m := range matches {
+		if m.J < 0 || m.J > n {
+			// panic(fmt.Sprintf("Invalid match %#v", m))
+			continue
+		}
 		matchesByJ[m.J] = append(matchesByJ[m.J], m)
 	}
 	// small detail: for deterministic output, sort each sublist by i.
