@@ -3,9 +3,10 @@ package matching
 import (
 	"bytes"
 	// "github.com/trustelem/zxcvbn/entropy"
-	"github.com/trustelem/zxcvbn/match"
 	"sort"
 	"strings"
+
+	"github.com/trustelem/zxcvbn/match"
 )
 
 type l33tMatch struct {
@@ -52,15 +53,12 @@ func (lm l33tMatch) Matches(password string) []*match.Match {
 }
 
 func translate(password string, sub map[string]string) string {
-	var res string
-	for _, s := range password {
-		if v, ok := sub[string(s)]; ok {
-			res = res + v
-		} else {
-			res = res + string(s)
+	return strings.Map(func(r rune) rune {
+		if v, ok := sub[string(r)]; ok && len(v) == 1 {
+			return []rune(v)[0]
 		}
-	}
-	return res
+		return r
+	}, password)
 }
 
 type kv struct {
