@@ -3,10 +3,11 @@ package zxcvbn
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/trustelem/zxcvbn/match"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
+
+	"github.com/trustelem/zxcvbn/match"
 
 	"github.com/test-go/testify/assert"
 	"github.com/test-go/testify/require"
@@ -75,6 +76,18 @@ func TestPasswordStrength(t *testing.T) {
 			assert.Equal(t, td.Guesses, s.Guesses)
 			assert.Equal(t, td.Score, s.Score, "Wrong score")
 		})
+	}
+
+}
+
+func TestCornerCases(t *testing.T) {
+	testdata := []string{
+		"wen\x8e\xc6",
+		"",
+	}
+
+	for _, td := range testdata {
+		_ = PasswordStrength(td, nil)
 	}
 
 }
