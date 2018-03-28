@@ -113,9 +113,11 @@ func MostGuessableMatchSequence(password string, matches []*match.Match, exclude
 		// update state if new best.
 		// first see if any competing sequences covering this prefix, with l or fewer matches,
 		// fare better than this sequence. if so, skip it and return.
-		for competingL, competingG := range optimal.g[k] {
-			if competingL <= l && competingG <= g {
-				return
+		if k >= 0 && k < len(optimal.g) {
+			for competingL, competingG := range optimal.g[k] {
+				if competingL <= l && competingG <= g {
+					return
+				}
 			}
 		}
 		// this sequence might be part of the final optimal sequence.
@@ -166,21 +168,24 @@ func MostGuessableMatchSequence(password string, matches []*match.Match, exclude
 		// find the final best sequence length and score
 		l := -1            // = undefined
 		var g float64 = -1 // = Infinity
-		first := true
-		for candidateL, candidateG := range optimal.g[k] {
-			if first || candidateG < g || candidateG == g && candidateL > l {
-				l = candidateL
-				g = candidateG
-				first = false
+		if k >= 0 && k < len(optimal.g) {
+			first := true
+			for candidateL, candidateG := range optimal.g[k] {
+				if first || candidateG < g || candidateG == g && candidateL > l {
+					l = candidateL
+					g = candidateG
+					first = false
+				}
+			}
+
+			for k >= 0 {
+				m := optimal.m[k][l]
+				optimalMatchSequence = append([]*match.Match{m}, optimalMatchSequence...)
+				k = m.I - 1
+				l--
 			}
 		}
 
-		for k >= 0 {
-			m := optimal.m[k][l]
-			optimalMatchSequence = append([]*match.Match{m}, optimalMatchSequence...)
-			k = m.I - 1
-			l--
-		}
 		return optimalMatchSequence
 	}
 

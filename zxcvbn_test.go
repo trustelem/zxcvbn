@@ -3,10 +3,11 @@ package zxcvbn
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/trustelem/zxcvbn/match"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
+
+	"github.com/trustelem/zxcvbn/match"
 
 	"github.com/test-go/testify/assert"
 	"github.com/test-go/testify/require"
@@ -77,4 +78,8 @@ func TestPasswordStrength(t *testing.T) {
 		})
 	}
 
+}
+
+func TestEmptyPassword(t *testing.T) {
+	_ = PasswordStrength("", nil)
 }
