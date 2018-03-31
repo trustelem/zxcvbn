@@ -8,7 +8,8 @@ for (var i = 2; i < process.argv.length; i++) { \
 console.log(JSON.stringify(res,null,2));"
 
 # echo $SCRIPT
-for i in "zxcvbn" \
+node -e "$SCRIPT" \
+"zxcvbn" \
 "qwER43@!" \
 "Tr0ub4dour&3" \
 "correcthorsebatterystaple" \
@@ -86,7 +87,5 @@ for i in "zxcvbn" \
 \
 "eheuczkqyq" \
 "rWibMFACxAUGZmxhVncy" \
-"Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w" ; do
-  s = $(echo $i | sha256sum | awk '{print $1}')
-  echo "$i" > fuzz/workdir/corpus/$s.txt
-done
+"Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w" \
+> output.json
