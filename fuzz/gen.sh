@@ -1,13 +1,7 @@
 #!/bin/bash
 
-SCRIPT="var zxcvbn = require('zxcvbn'); \
-var res = []; \
-for (var i = 2; i < process.argv.length; i++) { \
-    res.push(zxcvbn(process.argv[i])); \
-}; \
-console.log(JSON.stringify(res,null,2));"
+mkdir -p workdir/corpus
 
-# echo $SCRIPT
 for i in "zxcvbn" \
 "qwER43@!" \
 "Tr0ub4dour&3" \
@@ -87,6 +81,13 @@ for i in "zxcvbn" \
 "eheuczkqyq" \
 "rWibMFACxAUGZmxhVncy" \
 "Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w" ; do
-  s = $(echo $i | sha256sum | awk '{print $1}')
-  echo "$i" > fuzz/workdir/corpus/$s.txt
+  s=$(echo $i | sha256sum | awk '{print $1}')
+  echo "$i" > ./workdir/corpus/$s.txt
 done
+
+echo "Initial workdir/corpus added"
+echo "Generating go-fuzz-build: (go-fuzz-build github.com/trustelem/zxcvbn/fuzz)"
+go-fuzz-build github.com/trustelem/zxcvbn/fuzz
+echo "Start fuzzing with:"
+echo "go-fuzz -bin fuzz-fuzz.zip -workdir workdir"
+
