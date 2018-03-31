@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/test-go/testify/assert"
+	"github.com/trustelem/zxcvbn"
 	"github.com/trustelem/zxcvbn/match"
 	"github.com/trustelem/zxcvbn/scoring"
 )
@@ -432,4 +433,10 @@ func TestMostGuessableMatchSequenceCoffeeScriptCompat(t *testing.T) {
 		t.Logf("Got wrong most guessable sequence %s", match.ToString(result.Sequence))
 	}
 
+}
+
+func TestNonContinguousKeys(t *testing.T) {
+	//check that a case which give non-contiguous keys in optimal.g
+	//doesn't cause a crash
+	_ = zxcvbn.PasswordStrength("001��000", nil)
 }
