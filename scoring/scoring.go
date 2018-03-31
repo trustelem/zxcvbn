@@ -183,10 +183,16 @@ func MostGuessableMatchSequence(password string, matches []*match.Match, exclude
 			}
 
 			for k >= 0 {
-				m := optimal.m[k][l]
+				m, ok := optimal.m[k][l]
+				l--
+				if !ok {
+					//we're counting down through the potential keys (l). It's possible that
+					//the keys are non-contiguous so we need to skip values of l which aren't
+					//valid keys
+					continue
+				}
 				optimalMatchSequence = append([]*match.Match{m}, optimalMatchSequence...)
 				k = m.I - 1
-				l--
 			}
 		}
 
