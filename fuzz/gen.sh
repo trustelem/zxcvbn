@@ -81,7 +81,7 @@ for i in "zxcvbn" \
 "eheuczkqyq" \
 "rWibMFACxAUGZmxhVncy" \
 "Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w" ; do
-  s=$(echo $i | sha256sum | awk '{print $1}')
+  s=$(echo -n $i | sha256sum | awk '{print $1}')
   echo "$i" > ./workdir/corpus/$s.txt
 done
 
