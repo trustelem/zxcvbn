@@ -12,6 +12,18 @@ var greedy = regexp2.MustCompile(`(.+)\1+`, 0)
 var lazy = regexp2.MustCompile(`(.+?)\1+`, 0)
 var lazyAnchored = regexp2.MustCompile(`^(.+?)\1+$`, 0)
 
+func runeToStringIndex(index int, password string) int {
+	runes := 0
+	for i := range password {
+		if runes == index {
+			return i
+		}
+		runes++
+	}
+	//shouldn't really get here
+	return len(password)
+}
+
 func (repeatMatch) Matches(password string) []*match.Match {
 	var matches []*match.Match
 
@@ -44,8 +56,12 @@ func (repeatMatch) Matches(password string) []*match.Match {
 			rmatch = lazyMatch
 			baseToken = rmatch.GroupByNumber(1).String()
 		}
-		i := rmatch.Index
-		j := rmatch.Index + rmatch.Captures[0].Length - 1
+		// FindStringMatchStartingAt takes an index into the string (basically an offset
+		// into a byte array). rmatch indices will be rune offsets and so need to be converted
+		// to string offsets
+		i := runeToStringIndex(rmatch.Index, password)
+		j := runeToStringIndex(rmatch.Index+rmatch.Captures[0].Length-1, password)
+
 		// recursively match and score the base string
 		baseAnalysis := scoring.MostGuessableMatchSequence(
 			baseToken,
