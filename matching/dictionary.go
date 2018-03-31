@@ -1,7 +1,6 @@
 package matching
 
 import (
-	// "github.com/trustelem/zxcvbn/entropy"
 	"strings"
 
 	"github.com/trustelem/zxcvbn/match"
@@ -29,7 +28,6 @@ func (dm dictionaryMatch) Matches(password string) []*match.Match {
 						Rank:           val,
 						DictionaryName: dictionaryName,
 					}
-					// matchDic.Entropy = entropy.DictionaryEntropy(matchDic, float64(val))
 
 					results = append(results, matchDic)
 				}
