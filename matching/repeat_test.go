@@ -1,10 +1,11 @@
 package matching
 
 import (
-	"github.com/test-go/testify/assert"
-	"github.com/trustelem/zxcvbn/match"
 	"strings"
 	"testing"
+
+	"github.com/test-go/testify/assert"
+	"github.com/trustelem/zxcvbn/match"
 )
 
 // removeRepeatBaseData removes extra data not needed for unit tests
@@ -168,4 +169,17 @@ func TestRepeatMatching(t *testing.T) {
 			RepeatCount: 4,
 		},
 	}, matches)
+}
+
+func TestCornerCases(t *testing.T) {
+	// cases found in fuzzing
+	testCases := []string{
+		"�\u007f\x00\x00Q",
+	}
+
+	r := repeatMatch{}
+
+	for _, password := range testCases {
+		_ = r.Matches(password)
+	}
 }
