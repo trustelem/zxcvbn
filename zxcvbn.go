@@ -3,6 +3,7 @@ package zxcvbn
 import (
 	"github.com/trustelem/zxcvbn/match"
 	"time"
+	"unicode/utf8"
 
 	"github.com/trustelem/zxcvbn/matching"
 	"github.com/trustelem/zxcvbn/scoring"
@@ -18,6 +19,11 @@ type Result struct {
 func PasswordStrength(password string, userInputs []string) Result {
 	start := time.Now()
 	var result Result
+	if !utf8.ValidString(password) {
+		// Do not evaluate passwords containing invalid utf8
+		// => those will be reported as weak passwords
+		return result
+	}
 	matches := matching.Omnimatch(password, userInputs)
 	seq := scoring.MostGuessableMatchSequence(password, matches, false)
 	end := time.Now()
