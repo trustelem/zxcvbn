@@ -16,7 +16,7 @@
         "guesses_log10": 7.95650756671799
       }
     ],
-    "calc_time": 8,
+    "calc_time": 7,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3256942357.108194,
       "online_no_throttling_10_per_second": 9047062.103078317,
@@ -279,7 +279,7 @@
         "guesses_log10": 3.4756711883244296
       }
     ],
-    "calc_time": 13,
+    "calc_time": 21,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1.8542025594382695e+22,
       "online_no_throttling_10_per_second": 51505626651063040000,
@@ -347,22 +347,34 @@
     }
   },
   {
-    "password": "p@971word",
-    "guesses": 61610000,
-    "guesses_log10": 7.789651208793408,
+    "password": "p@13296word",
+    "guesses": 1651396000,
+    "guesses_log10": 9.217851228316068,
     "sequence": [
       {
         "pattern": "bruteforce",
-        "token": "p@971",
+        "token": "p@",
         "i": 0,
-        "j": 4,
-        "guesses": 100000,
-        "guesses_log10": 5
+        "j": 1,
+        "guesses": 100,
+        "guesses_log10": 2
+      },
+      {
+        "pattern": "date",
+        "token": "13296",
+        "i": 2,
+        "j": 6,
+        "separator": "",
+        "year": 1996,
+        "month": 2,
+        "day": 13,
+        "guesses": 8395,
+        "guesses_log10": 3.9240207004740677
       },
       {
         "pattern": "dictionary",
-        "i": 5,
-        "j": 8,
+        "i": 7,
+        "j": 10,
         "token": "word",
         "matched_word": "word",
         "rank": 308,
@@ -373,28 +385,26 @@
         "uppercase_variations": 1,
         "l33t_variations": 1,
         "guesses": 308,
-        "guesses_log10": 2.488550716500444
+        "guesses_log10": 2.4885507165004443
       }
     ],
-    "calc_time": 0,
+    "calc_time": 2,
     "crack_times_seconds": {
-      "online_throttling_100_per_hour": 2217960000,
-      "online_no_throttling_10_per_second": 6161000,
-      "offline_slow_hashing_1e4_per_second": 6161,
-      "offline_fast_hashing_1e10_per_second": 0.006161
+      "online_throttling_100_per_hour": 59450256000,
+      "online_no_throttling_10_per_second": 165139600,
+      "offline_slow_hashing_1e4_per_second": 165139.6,
+      "offline_fast_hashing_1e10_per_second": 0.1651396
     },
     "crack_times_display": {
-      "online_throttling_100_per_hour": "69 years",
-      "online_no_throttling_10_per_second": "2 months",
-      "offline_slow_hashing_1e4_per_second": "2 hours",
+      "online_throttling_100_per_hour": "centuries",
+      "online_no_throttling_10_per_second": "5 years",
+      "offline_slow_hashing_1e4_per_second": "2 days",
       "offline_fast_hashing_1e10_per_second": "less than a second"
     },
-    "score": 2,
+    "score": 3,
     "feedback": {
       "warning": "",
-      "suggestions": [
-        "Add another word or two. Uncommon words are better."
-      ]
+      "suggestions": []
     }
   },
   {
@@ -462,7 +472,7 @@
         "guesses_log10": 0.6989700043360187
       }
     ],
-    "calc_time": 2,
+    "calc_time": 25,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 216,
       "online_no_throttling_10_per_second": 0.6,
@@ -608,7 +618,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 597600,
       "online_no_throttling_10_per_second": 1660,
@@ -663,7 +673,7 @@
         "guesses_log10": 1.041392685158225
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 820944,
       "online_no_throttling_10_per_second": 2280.4,
@@ -707,7 +717,7 @@
         "guesses_log10": 4.11092624226642
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 464796,
       "online_no_throttling_10_per_second": 1291.1,
@@ -731,7 +741,7 @@
   {
     "password": "iloveyou",
     "guesses": 48,
-    "guesses_log10": 1.6812412373755872,
+    "guesses_log10": 1.681241237375587,
     "sequence": [
       {
         "pattern": "dictionary",
@@ -750,7 +760,7 @@
         "guesses_log10": 1.6720978579357173
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1728,
       "online_no_throttling_10_per_second": 4.8,
@@ -836,7 +846,7 @@
         "guesses_log10": 2.9454685851318194
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 31788,
       "online_no_throttling_10_per_second": 88.3,
@@ -895,7 +905,7 @@
         "guesses_log10": 3.2933625547114453
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 7434000,
       "online_no_throttling_10_per_second": 20650,
@@ -918,8 +928,8 @@
   },
   {
     "password": "zhang198822",
-    "guesses": 70024300,
-    "guesses_log10": 7.845248776079585,
+    "guesses": 72358110,
+    "guesses_log10": 7.859487214527043,
     "sequence": [
       {
         "pattern": "dictionary",
@@ -946,19 +956,19 @@
         "year": 1988,
         "month": 2,
         "day": 2,
-        "guesses": 10950,
-        "guesses_log10": 4.039414119176136
+        "guesses": 11315,
+        "guesses_log10": 4.053654558290747
       }
     ],
-    "calc_time": 1,
+    "calc_time": 14,
     "crack_times_seconds": {
-      "online_throttling_100_per_hour": 2520874800,
-      "online_no_throttling_10_per_second": 7002430,
-      "offline_slow_hashing_1e4_per_second": 7002.43,
-      "offline_fast_hashing_1e10_per_second": 0.00700243
+      "online_throttling_100_per_hour": 2604891960,
+      "online_no_throttling_10_per_second": 7235811,
+      "offline_slow_hashing_1e4_per_second": 7235.811,
+      "offline_fast_hashing_1e10_per_second": 0.007235811
     },
     "crack_times_display": {
-      "online_throttling_100_per_hour": "78 years",
+      "online_throttling_100_per_hour": "81 years",
       "online_no_throttling_10_per_second": "3 months",
       "offline_slow_hashing_1e4_per_second": "2 hours",
       "offline_fast_hashing_1e10_per_second": "less than a second"
@@ -986,7 +996,7 @@
         "guesses_log10": 5.999999999999999
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 36000036,
       "online_no_throttling_10_per_second": 100000.1,
@@ -1056,7 +1066,7 @@
         "guesses_log10": 8
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3600000036,
       "online_no_throttling_10_per_second": 10000000.1,
@@ -1091,7 +1101,7 @@
         "guesses_log10": 8
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3600000036,
       "online_no_throttling_10_per_second": 10000000.1,
@@ -1126,7 +1136,7 @@
         "guesses_log10": 8
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3600000036,
       "online_no_throttling_10_per_second": 10000000.1,
@@ -1287,7 +1297,7 @@
         "guesses_log10": 3.075911761482777
       }
     ],
-    "calc_time": 2,
+    "calc_time": 3,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 19489556160000000000,
       "online_no_throttling_10_per_second": 54137656000000000,
@@ -1320,7 +1330,7 @@
         "guesses_log10": 71
       }
     ],
-    "calc_time": 49,
+    "calc_time": 110,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3.600000000000001e+72,
       "online_no_throttling_10_per_second": 1.0000000000000002e+70,
@@ -1353,7 +1363,7 @@
         "guesses_log10": 11
       }
     ],
-    "calc_time": 1,
+    "calc_time": 4,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3600000000036,
       "online_no_throttling_10_per_second": 10000000000.1,
@@ -1442,7 +1452,7 @@
         "guesses_log10": 3.8107028609471167
       }
     ],
-    "calc_time": 3,
+    "calc_time": 6,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 7.697230882272e+21,
       "online_no_throttling_10_per_second": 21381196895199998000,
@@ -1620,7 +1630,7 @@
         "guesses_log10": 3.8107028609471167
       }
     ],
-    "calc_time": 2,
+    "calc_time": 3,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 7.697230882272e+21,
       "online_no_throttling_10_per_second": 21381196895199998000,
@@ -1709,7 +1719,7 @@
         "guesses_log10": 3.8107028609471167
       }
     ],
-    "calc_time": 3,
+    "calc_time": 6,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 7.697230882272e+21,
       "online_no_throttling_10_per_second": 21381196895199998000,
@@ -2024,7 +2034,7 @@
         "guesses_log10": 3.926959488380276
       }
     ],
-    "calc_time": 4,
+    "calc_time": 7,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 5.507067711922981e+25,
       "online_no_throttling_10_per_second": 1.529741031089717e+23,
@@ -2062,7 +2072,7 @@
         "uppercase_variations": 1,
         "l33t_variations": 1,
         "guesses": 657,
-        "guesses_log10": 2.81756536955978
+        "guesses_log10": 2.8175653695597807
       },
       {
         "pattern": "dictionary",
@@ -2121,7 +2131,7 @@
         "guesses_log10": 3.8109042806687
       }
     ],
-    "calc_time": 2,
+    "calc_time": 3,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1794374639341301000,
       "online_no_throttling_10_per_second": 4984373998170280,
@@ -2291,7 +2301,7 @@
         "guesses_log10": 2.6998377258672455
       }
     ],
-    "calc_time": 2,
+    "calc_time": 3,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1.0064124e+23,
       "online_no_throttling_10_per_second": 279559000000000000000,
@@ -2364,7 +2374,7 @@
         "guesses_log10": 11
       }
     ],
-    "calc_time": 3,
+    "calc_time": 4,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1.1850624003600002e+23,
       "online_no_throttling_10_per_second": 329184000100000000000,
@@ -2408,7 +2418,7 @@
         "guesses_log10": 3.7146649928625366
       }
     ],
-    "calc_time": 1,
+    "calc_time": 4,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 373608000.00000006,
       "online_no_throttling_10_per_second": 1037800.0000000002,
@@ -2465,7 +2475,7 @@
         "guesses_log10": 2.3344537511509307
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 15912000,
       "online_no_throttling_10_per_second": 44200,
@@ -2520,7 +2530,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 5,
+    "calc_time": 10,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 540000,
       "online_no_throttling_10_per_second": 1500,
@@ -2544,8 +2554,8 @@
   },
   {
     "password": "neverforget13/3/1997",
-    "guesses": 3590641000,
-    "guesses_log10": 9.555171985601444,
+    "guesses": 3756862000,
+    "guesses_log10": 9.574825242511018,
     "sequence": [
       {
         "pattern": "dictionary",
@@ -2588,20 +2598,20 @@
         "year": 1997,
         "month": 3,
         "day": 13,
-        "guesses": 30660,
-        "guesses_log10": 4.486572150518356
+        "guesses": 32120,
+        "guesses_log10": 4.506775536606643
       }
     ],
-    "calc_time": 2,
+    "calc_time": 4,
     "crack_times_seconds": {
-      "online_throttling_100_per_hour": 129263076000,
-      "online_no_throttling_10_per_second": 359064100,
-      "offline_slow_hashing_1e4_per_second": 359064.1,
-      "offline_fast_hashing_1e10_per_second": 0.3590641
+      "online_throttling_100_per_hour": 135247032000,
+      "online_no_throttling_10_per_second": 375686200,
+      "offline_slow_hashing_1e4_per_second": 375686.2,
+      "offline_fast_hashing_1e10_per_second": 0.3756862
     },
     "crack_times_display": {
       "online_throttling_100_per_hour": "centuries",
-      "online_no_throttling_10_per_second": "11 years",
+      "online_no_throttling_10_per_second": "12 years",
       "offline_slow_hashing_1e4_per_second": "4 days",
       "offline_fast_hashing_1e10_per_second": "less than a second"
     },
@@ -2641,7 +2651,7 @@
         "guesses_log10": 1.041392685158225
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 1152000,
       "online_no_throttling_10_per_second": 3200,
@@ -2831,7 +2841,7 @@
         "guesses_log10": 5.999999999999999
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 543600000000,
       "online_no_throttling_10_per_second": 1510000000,
@@ -2872,7 +2882,7 @@
         "guesses_log10": 2.276461804173244
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 6840,
       "online_no_throttling_10_per_second": 19,
@@ -3013,7 +3023,7 @@
         "guesses_log10": 1.041392685158225
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 10427904,
       "online_no_throttling_10_per_second": 28966.4,
@@ -3065,7 +3075,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 36000360000,
       "online_no_throttling_10_per_second": 100001000,
@@ -3134,7 +3144,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 0,
+    "calc_time": 4,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3627000000,
       "online_no_throttling_10_per_second": 10075000,
@@ -3195,7 +3205,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 9000000000,
       "online_no_throttling_10_per_second": 25000000,
@@ -3305,10 +3315,10 @@
         "uppercase_variations": 1,
         "l33t_variations": 1,
         "guesses": 3,
-        "guesses_log10": 0.47712125471966244
+        "guesses_log10": 0.4771212547196623
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 144,
       "online_no_throttling_10_per_second": 0.4,
@@ -3444,7 +3454,7 @@
         "guesses_log10": 2.7339992865383866
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 19548,
       "online_no_throttling_10_per_second": 54.3,
@@ -3488,7 +3498,7 @@
         "guesses_log10": 2.7339992865383866
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 19548,
       "online_no_throttling_10_per_second": 54.3,
@@ -3600,7 +3610,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 2311200,
       "online_no_throttling_10_per_second": 6420,
@@ -3670,7 +3680,7 @@
         "guesses_log10": 1.6989700043360185
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 4262400,
       "online_no_throttling_10_per_second": 11840,
@@ -3706,7 +3716,7 @@
         "guesses_log10": 7
       }
     ],
-    "calc_time": 0,
+    "calc_time": 1,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 360000036,
       "online_no_throttling_10_per_second": 1000000.1,
@@ -3814,7 +3824,7 @@
         "guesses_log10": 10
       }
     ],
-    "calc_time": 1,
+    "calc_time": 0,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 360000000036,
       "online_no_throttling_10_per_second": 1000000000.1,
@@ -3847,7 +3857,7 @@
         "guesses_log10": 20
       }
     ],
-    "calc_time": 1,
+    "calc_time": 2,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3.6e+21,
       "online_no_throttling_10_per_second": 10000000000000000000,
@@ -3880,7 +3890,7 @@
         "guesses_log10": 29.999999999999996
       }
     ],
-    "calc_time": 4,
+    "calc_time": 7,
     "crack_times_seconds": {
       "online_throttling_100_per_hour": 3.6000000000000004e+31,
       "online_no_throttling_10_per_second": 1.0000000000000001e+29,
