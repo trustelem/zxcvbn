@@ -10,4 +10,4 @@ before_install:
   - go get -t -v ./...
 
 script:
-  - $GOPATH/bin/goveralls -service=travis-ci
+  - $GOPATH/bin/goveralls -service=travis-ci -ignore=fuzz/*
