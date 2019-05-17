@@ -9,9 +9,10 @@ import (
 )
 
 type Result struct {
-	Password string
-	Guesses  float64
-	Sequence []*match.Match
+	Password     string
+	Guesses      float64
+	GuessesLog10 float64
+	Sequence     []*match.Match
 }
 
 // ------------------------------------------------------------------------------
@@ -228,6 +229,7 @@ func MostGuessableMatchSequence(password string, matches []*match.Match, exclude
 	// final result object
 	result.Password = password
 	result.Guesses = guesses
+	result.GuessesLog10 = math.Log10(guesses)
 	result.Sequence = optimalMatchSequence
 	return
 }

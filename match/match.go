@@ -43,7 +43,9 @@ type Match struct {
 	Day       int     `json:"day,omitempty"`
 	Separator string  `json:"separator,omitempty"`
 	Entropy   float64 `json:"entropy,omitempty"`
-	Guesses   float64 `json:"guesses,omitempty"`
+
+	Guesses      float64 `json:"guesses,omitempty"`
+	GuessesLog10 float64 `json:"guesses_log10,omitempty"`
 }
 
 type Matcher interface {

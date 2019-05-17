@@ -1,11 +1,29 @@
 package matching
 
 import (
+	"math"
+	"regexp"
+
 	"github.com/trustelem/zxcvbn/adjacency"
 	"github.com/trustelem/zxcvbn/frequency"
 	"github.com/trustelem/zxcvbn/match"
-	"regexp"
+	"github.com/trustelem/zxcvbn/scoring"
 )
+
+func estimateGuessForMatch(m *match.Match, password string) *match.Match {
+	guesses := scoring.EstimateGuesses(m, password)
+	m.Guesses = guesses
+	m.GuessesLog10 = math.Log10(guesses)
+
+	return m
+}
+
+func estimateGuessesForMatches(matches []*match.Match, password string) (matchesm []*match.Match) {
+	for _, m := range matches {
+		matchesm = append(matchesm, estimateGuessForMatch(m, password))
+	}
+	return
+}
 
 func Omnimatch(password string, userInputs []string) (matches []*match.Match) {
 	dictMatcher := defaultRankedDictionnaries.withDict("user_inputs", buildRankedDict(userInputs))
@@ -22,7 +40,9 @@ func Omnimatch(password string, userInputs []string) (matches []*match.Match) {
 	}
 
 	for _, m := range matchers {
-		matches = append(matches, m.Matches(password)...)
+		patternMatches := m.Matches(password)
+		patternMatchesWithGuesses := estimateGuessesForMatches(patternMatches, password)
+		matches = append(matches, patternMatchesWithGuesses...)
 	}
 	match.Sort(matches)
 	return matches
