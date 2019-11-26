@@ -15,8 +15,11 @@ func (dm dictionaryMatch) Matches(password string) []*match.Match {
 
 	for dictionaryName, rankedDict := range dm.rankedDictionaries {
 		for i := range password {
+			j := len(password) - 1
 			for delta := range password[i:] {
-				j := i + delta
+				if delta > 0 {
+					j = i + delta - 1
+				}
 				word := strings.ToLower(password[i : j+1])
 				if val, ok := rankedDict[word]; ok {
 					matchDic := &match.Match{
