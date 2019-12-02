@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/trustelem/zxcvbn/feedback"
 	"github.com/trustelem/zxcvbn/match"
 
 	"github.com/test-go/testify/assert"
@@ -15,10 +16,11 @@ import (
 
 func TestPasswordStrength(t *testing.T) {
 	var testdata []struct {
-		Password string         `json:"password"`
-		Guesses  float64        `json:"guesses"`
-		Score    int            `json:"score"`
-		Sequence []*match.Match `json:"sequence"`
+		Password string             `json:"password"`
+		Guesses  float64            `json:"guesses"`
+		Score    int                `json:"score"`
+		Sequence []*match.Match     `json:"sequence"`
+		Feedback *feedback.Feedback `json:"feedback"`
 	}
 
 	b, err := ioutil.ReadFile(filepath.Join("testdata", "output.json"))
@@ -65,6 +67,9 @@ func TestPasswordStrength(t *testing.T) {
 					if !assert.Equal(t, td.Sequence[j].Guesses, s.Sequence[j].Guesses, msg("guesses")) {
 						return
 					}
+					if !assert.InDelta(t, td.Sequence[j].GuessesLog10, s.Sequence[j].GuessesLog10, 0.000000000000001, msg("guesses_log10")) {
+						return
+					}
 				}
 			} else {
 				b, _ := json.Marshal(td.Sequence)
@@ -73,7 +78,9 @@ func TestPasswordStrength(t *testing.T) {
 					match.ToString(s.Sequence))
 				return
 			}
-			assert.Equal(t, td.Guesses, s.Guesses)
+			assert.Equal(t, td.Guesses, s.Guesses, "Wrong guesses")
+			assert.Equal(t, td.Feedback.Warning, s.Feedback.Warning, "Wrong feedback warning")
+			assert.Equal(t, td.Feedback.Suggestions, s.Feedback.Suggestions, "Wrong feedback suggestions")
 			assert.Equal(t, td.Score, s.Score, "Wrong score")
 		})
 	}
