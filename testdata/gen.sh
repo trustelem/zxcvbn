@@ -5,7 +5,8 @@ var res = []; \
 for (var i = 2; i < process.argv.length; i++) { \
     res.push(zxcvbn(process.argv[i])); \
 }; \
-console.log(JSON.stringify(res,null,2));"
+var now = new Date();
+console.log(JSON.stringify({ timestamp: now, tests: res },null,2));"
 
 # echo $SCRIPT
 node -e "$SCRIPT" \

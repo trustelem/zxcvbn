@@ -6,19 +6,24 @@ import (
 	"io/ioutil"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/trustelem/zxcvbn/match"
+	"github.com/trustelem/zxcvbn/scoring"
 
 	"github.com/test-go/testify/assert"
 	"github.com/test-go/testify/require"
 )
 
 func TestPasswordStrength(t *testing.T) {
-	var testdata []struct {
-		Password string         `json:"password"`
-		Guesses  float64        `json:"guesses"`
-		Score    int            `json:"score"`
-		Sequence []*match.Match `json:"sequence"`
+	var testdata struct {
+		TimeStamp time.Time `json:"timestamp"`
+		Tests     []struct {
+			Password string         `json:"password"`
+			Guesses  float64        `json:"guesses"`
+			Score    int            `json:"score"`
+			Sequence []*match.Match `json:"sequence"`
+		} `json:"tests"`
 	}
 
 	b, err := ioutil.ReadFile(filepath.Join("testdata", "output.json"))
@@ -27,7 +32,12 @@ func TestPasswordStrength(t *testing.T) {
 	err = json.Unmarshal(b, &testdata)
 	require.NoError(t, err)
 
-	for _, td := range testdata {
+	refYear := scoring.ReferenceYear
+	defer func() {
+		scoring.ReferenceYear = refYear
+	}()
+	scoring.ReferenceYear = testdata.TimeStamp.Year()
+	for _, td := range testdata.Tests {
 		t.Run(td.Password, func(t *testing.T) {
 			// map character positions to rune position
 			runeMap := make(map[int]int, len(td.Password))
