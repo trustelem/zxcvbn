@@ -37,6 +37,8 @@ func TestPasswordStrength(t *testing.T) {
 		scoring.ReferenceYear = refYear
 	}()
 	scoring.ReferenceYear = testdata.TimeStamp.Year()
+	// maximum epsilon for guesses comparison
+	const maxEpsilonGuesses = 1e-15
 	for _, td := range testdata.Tests {
 		t.Run(td.Password, func(t *testing.T) {
 			// map character positions to rune position
@@ -72,7 +74,7 @@ func TestPasswordStrength(t *testing.T) {
 					if !assert.Equal(t, td.Sequence[j].Token, s.Sequence[j].Token, msg("token")) {
 						return
 					}
-					if !assert.Equal(t, td.Sequence[j].Guesses, s.Sequence[j].Guesses, msg("guesses")) {
+					if !assert.InEpsilon(t, td.Sequence[j].Guesses, s.Sequence[j].Guesses, maxEpsilonGuesses, msg("guesses")) {
 						return
 					}
 				}
@@ -83,7 +85,7 @@ func TestPasswordStrength(t *testing.T) {
 					match.ToString(s.Sequence))
 				return
 			}
-			assert.Equal(t, td.Guesses, s.Guesses)
+			assert.InEpsilon(t, td.Guesses, s.Guesses, maxEpsilonGuesses)
 			assert.Equal(t, td.Score, s.Score, "Wrong score")
 		})
 	}
