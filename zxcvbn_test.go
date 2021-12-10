@@ -11,8 +11,8 @@ import (
 	"github.com/trustelem/zxcvbn/match"
 	"github.com/trustelem/zxcvbn/scoring"
 
-	"github.com/test-go/testify/assert"
-	"github.com/test-go/testify/require"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestPasswordStrength(t *testing.T) {

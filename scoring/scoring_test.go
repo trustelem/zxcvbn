@@ -3,7 +3,7 @@ package scoring_test
 import (
 	"testing"
 
-	"github.com/test-go/testify/assert"
+	"github.com/stretchr/testify/assert"
 	"github.com/trustelem/zxcvbn"
 	"github.com/trustelem/zxcvbn/match"
 	"github.com/trustelem/zxcvbn/scoring"

@@ -3,7 +3,7 @@ package zxcvbn
 import (
 	"testing"
 
-	"github.com/test-go/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_displayTime(t *testing.T) {

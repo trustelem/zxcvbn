@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/test-go/testify/assert"
+	"github.com/stretchr/testify/assert"
 	"github.com/trustelem/zxcvbn/adjacency"
 	"github.com/trustelem/zxcvbn/internal/mathutils"
 	"github.com/trustelem/zxcvbn/match"
