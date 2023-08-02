@@ -3,6 +3,7 @@ package matching
 import (
 	"strings"
 
+	"github.com/elliotwutingfeng/asciiset"
 	"github.com/trustelem/zxcvbn/adjacency"
 	"github.com/trustelem/zxcvbn/match"
 )
@@ -21,16 +22,13 @@ func (s spatialMatch) Matches(password string) (matches []*match.Match) {
 	return matches
 }
 
-var shiftedChars = map[string]map[byte]bool{
+var shiftedChars = map[string]asciiset.ASCIISet{
 	"qwerty": stringToSet(`~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?`),
 	"dvorak": stringToSet(`~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?`),
 }
 
-func stringToSet(s string) map[byte]bool {
-	set := make(map[byte]bool)
-	for i := 0; i < len(s); i++ {
-		set[s[i]] = true
-	}
+func stringToSet(s string) asciiset.ASCIISet {
+	set, _ := asciiset.MakeASCIISet(s)
 	return set
 }
 
@@ -43,7 +41,7 @@ func spatialMatchHelper(password string, graph *adjacency.Graph) (matches []*mat
 		lastDirection := -99
 		turns := 0
 		shiftedCount := 0
-		if shifted[password[i]] {
+		if shifted.Contains(password[i]) {
 			shiftedCount = 1
 		}
 
